@@ -21,15 +21,15 @@ void insert(struct node **q,int n)
     }
     else
     {
-       while(temp->next!=NULL)
-       {
-           temp=temp->next;
-       }
+        while(temp->next!=NULL)
+        {
+            temp=temp->next;
+        }
         temp->next=r;
         r->prev=temp;
         r->data=n;
         r->next=NULL;
-        
+
     }
 }
 int count(struct node **q)
@@ -105,7 +105,7 @@ int del(struct node **q,int n)
     {
         return 0;
     }
-    
+
     ((temp->next)->next)->prev=temp;
     temp->next=(temp->next)->next;
     free(temp->next);

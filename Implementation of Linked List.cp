@@ -117,4 +117,3 @@ int main()
         insert(&head,j);
     }
 }
-

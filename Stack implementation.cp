@@ -1,8 +1,8 @@
 #include<iostream>
 void push(int *a,int n,int *e)
 {
-        *(a+*e+1)=n;
-        (*e)++;
+    *(a+*e+1)=n;
+    (*e)++;
 }
 void pop(int *a,int *e)
 {
