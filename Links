@@ -7,3 +7,18 @@ https://blog.anudeep2011.com/heavy-light-decomposition/
 https://codeforces.com/blog/entry/18369
 https://www.hackerrank.com/topics/lowest-common-ancestor/
 https://codeforces.com/blog/entry/15890
+
+CENTROID DECOMPOSITION
+
+Problem - https://www.codechef.com/DEC17/problems/CHEFFIB
+Explanation + problems - https://threads-iiith.quora.com/Centroid-Decomposition-of-a-Tree
+Video tutorial - https://www.youtube.com/watch?v=3pk02p1-weU
+Problems - https://codeforces.com/blog/entry/19175
+Discussion - https://codeforces.com/blog/entry/10533
+IOI Problem - https://www.ioi2011.or.th/hsc/tasks/EN/race.pdf
+Explanation + problems - https://sai16vicky.wordpress.com/2014/11/01/divide-and-conquer-on-trees-centroid-decomposition/
+My code - https://github.com/Equlnox/IITP-ACM-Notebook/blob/master/code/graphs/CentroidDecomposition.cpp
+Read some portion of this - http://courses.csail.mit.edu/6.897/spring05/lec/lec16.pdf
+query on trees - http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376
+Problems - https://codeforces.com/blog/entry/52492
+USACO problem - http://www.usaco.org/index.php?page=viewproblem2&cpid=286
