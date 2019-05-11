@@ -16,11 +16,11 @@ void build(int node, int start, int end)          // initial call is build(1,0,n
 }
 int query(int node, int start, int end, int l, int r)
 {
-    if(r < start or end < l)
+    if(r < start || end < l)
     {
         return 0;
     }
-    if(l <= start and end <= r)
+    if(l <= start && end <= r)
     {
         return tree[node];
     }
