@@ -20,7 +20,7 @@ int query(int node, int start, int end, int l, int r)
     {
         return 0;
     }
-    if(l <= start && end <= r)
+    if(l <= start && r >= end)
     {
         return tree[node];
     }
