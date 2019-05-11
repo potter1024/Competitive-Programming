@@ -1,6 +1,6 @@
 vector<ll> v(N,0);
 vector<ll> segTree(N,0);
-void build(int node, int start, int end)          // initial call is build(0,n-1,1)
+void build(int node, int start, int end)          // initial call is build(1,0,n-1)
 {
     if(start == end)
     {
