@@ -1,3 +1,4 @@
+//    Defining of root node:  TrieNode *root=new TrieNode();
 struct TrieNode
 {
     map<char,TrieNode*> children;
