@@ -4,7 +4,7 @@ void build(int node, int start, int end)          // initial call is build(1,0,n
 {
     if(start == end)
     {
-        tree[node] = A[start];
+        tree[node] = v[start];
     }
     else
     {
@@ -33,8 +33,7 @@ void update(int node, int start, int end, int idx, int val)
 {
     if(start == end)
     {
-        // Leaf node
-        A[idx] += val;
+        v[idx] += val;
         tree[node] += val;
     }
     else
