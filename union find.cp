@@ -1,4 +1,3 @@
-#define MAX 1000000
 ll id[MAX]={};
 ll sz[MAX]={};
 void run(ll n)
