@@ -1,6 +1,5 @@
-vector<ll> v(N,0);
-vector<ll> segTree(N,0);
-void build(int node, int start, int end)          // initial call is build(1,0,n-1)
+vector<ll> v(N,0),tree(N,0);
+void build(ll node, ll start, ll end)          // initial call is build(1,0,n-1)
 {
     if(start == end)
     {
@@ -8,13 +7,13 @@ void build(int node, int start, int end)          // initial call is build(1,0,n
     }
     else
     {
-        int mid = (start + end) / 2;
+        ll mid = (start + end) / 2;
         build(2*node, start, mid);
         build(2*node+1, mid+1, end);
         tree[node] = tree[2*node] + tree[2*node+1];
     }
 }
-int query(int node, int start, int end, int l, int r)
+ll query(ll node, ll start, ll end, ll l, ll r)
 {
     if(r < start || end < l)
     {
@@ -24,12 +23,12 @@ int query(int node, int start, int end, int l, int r)
     {
         return tree[node];
     }
-    int mid = (start + end) / 2;
-    int p1 = query(2*node, start, mid, l, r);
-    int p2 = query(2*node+1, mid+1, end, l, r);
+    ll mid = (start + end) / 2;
+    ll p1 = query(2*node, start, mid, l, r);
+    ll p2 = query(2*node+1, mid+1, end, l, r);
     return (p1 + p2);
 }
-void update(int node, int start, int end, int idx, int val)
+void update(ll node, ll start, ll end, ll idx, ll val)
 {
     if(start == end)
     {
@@ -38,8 +37,8 @@ void update(int node, int start, int end, int idx, int val)
     }
     else
     {
-        int mid = (start + end) / 2;
-        if(start <= idx and idx <= mid)
+        ll mid = (start + end) / 2;
+        if(start <= idx && idx <= mid)
         {
             update(2*node, start, mid, idx, val);
         }
