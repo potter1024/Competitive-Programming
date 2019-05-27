@@ -49,3 +49,11 @@ void update(ll node, ll start, ll end, ll idx, ll val)
         tree[node] = tree[2*node] + tree[2*node+1];
     }
 }
+
+
+
+
+
+
+//https://codeforces.com/blog/entry/15729
+//https://codeforces.com/blog/entry/15890
