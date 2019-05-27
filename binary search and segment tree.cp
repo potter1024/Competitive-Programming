@@ -117,6 +117,7 @@ int main()
     // freopen("input.txt","r",stdin);
     // freopen("input.txt","w",stdout);
 
+    //Finding number of subsets whose product is divisible by k. Cutting down a naive complexity of n^3 to n(logn)^2
     v[0]=6;
     v[1]=2;
     v[2]=8;
