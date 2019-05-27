@@ -1,4 +1,3 @@
-//    Defining of root node:  TrieNode *root=new TrieNode();
 struct TrieNode
 {
     map<char,TrieNode*> children;
@@ -8,7 +7,8 @@ struct TrieNode
         endofword=false;
     }
 };
-void insert(TrieNode *root,string word)
+TrieNode *root=new TrieNode();
+void insert(string word)
 {
     TrieNode *current=root;
     for(int i=0;i<word.size();i++)
@@ -24,7 +24,7 @@ void insert(TrieNode *root,string word)
     }
     current->endofword=true;
 }
-bool prefixsearch(TrieNode *root,string word)
+bool prefixsearch(string word)
 {
     TrieNode *current=root;
     for(int i=0;i<word.size();i++)
@@ -37,7 +37,7 @@ bool prefixsearch(TrieNode *root,string word)
     }
     return true;
 }
-bool wordsearch(TrieNode *root,string word)
+bool wordsearch(string word)
 {
     TrieNode *current=root;
     for(int i=0;i<word.size();i++)
@@ -53,7 +53,7 @@ bool wordsearch(TrieNode *root,string word)
     else
         return false;
 }
-void deletion(TrieNode *root,string word)
+void deletion(string word)
 {
     TrieNode *current=root;
     for(ll i=0;i<word.size();i++)
