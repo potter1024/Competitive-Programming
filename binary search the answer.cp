@@ -13,8 +13,8 @@ while(start<=end)
         end=mid-1;
     }
 }
-ll mi=min(start,end);
-ll ma=max(start,end);
+ll mi=max(min(start,end),0);
+ll ma=min(max(start,end),m-1);
 (check(ma)==1)?cout<<ma:cout<<mi;
 
 
@@ -34,6 +34,6 @@ while(start<=end)
         start=mid+1;
     }
 }
-ll mi=min(start,end);
-ll ma=max(start,end);
+ll mi=max(min(start,end),0);
+ll ma=min(max(start,end),m-1);
 (check(mi)==1)?cout<<mi:cout<<ma;
