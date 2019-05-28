@@ -1,6 +1,6 @@
 ll id[MAX]={};
 ll sz[MAX]={};
-void run(ll n)
+void initialise(ll n)
 {
     for(ll i=1;i<=n;i++)
     {
@@ -21,7 +21,7 @@ bool connected(ll a,ll b)
 {
     return root(a)==root(b);
 }
-void add(ll a,ll b)
+void merge(ll a,ll b)
 {
     ll i=root(a),j=root(b);
     if(i==j)
