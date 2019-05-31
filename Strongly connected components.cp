@@ -123,23 +123,19 @@ int main()
 
     ll n,m;
     cin>>n>>m;
-    vector<pair<ll,ll> > edges;
+    vector<pair<ll,ll> > r_edges;           // for reverse edges
     for(ll i=0;i<m;i++)
     {
         ll a,b;
         cin>>a>>b;
         aE(a,b);
-        edges.pb(mp(a,b));
+        r_edges.pb(mp(b,a));
     }
     DFS(n);
-    for(ll i=0;i<m;i++)
-        swap(edges[i].first,edges[i].second);
-    for(ll i=1;i<n;i++)
-    {
+    for(ll i=1;i<=n;i++)
         adj[i].erase(all(adj[i]));
-    }
     for(ll i=0;i<m;i++)
-        aE(edges[i].first,edges[i].second);
+        aE(r_edges[i].first,r_edges[i].second);
     for(ll i=1;i<=n;i++)
         visited[i]=0;
     ll index=0;
@@ -152,7 +148,7 @@ int main()
         _DFSUtil(x,index);
         index++;
     }
-    cout<<index<<endl;
+    cout<<index<<endl;                          // total number of scc
     for(ll i=0;i<index;i++)
     {
         for(ll j=0;j<scc[i].size();j++)
