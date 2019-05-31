@@ -89,7 +89,7 @@ void DFSUtil(ll u)
 }
 void DFS(ll n)
 {
-    for (ll u=0; u<n; u++)
+    for (ll u=1; u<=n; u++)
     {
         if (visited[u] == false)
         {
@@ -110,13 +110,11 @@ int main()
 
     ll n,m;
     cin>>n>>m;
-    vector<pair<ll,ll> > edges;
     for(ll i=0;i<m;i++)
     {
         ll a,b;
         cin>>a>>b;
         aE(a,b);
-        edges.pb(mp(a,b));
     }
     DFS(n);
     while(s.empty()==0)
