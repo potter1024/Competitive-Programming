@@ -14,7 +14,7 @@ void DFSUtil(ll u)
 }
 void DFS(ll n)
 {
-    for (ll u=0; u<n; u++)
+    for (ll u=1; u<=n; u++)
     {
         if (visited[u] == false)
         {
