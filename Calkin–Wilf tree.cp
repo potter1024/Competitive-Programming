@@ -125,6 +125,9 @@ int main()
             break;
         }
     }
+    
+    // both are same but with diffeent complexities
+    
     while (a > 0 && b > 0)
     {
         if (a > b)
