@@ -81,7 +81,7 @@ void kmpSearch()
     ll i = 0, j = 0;
     while (i < n)
     {
-        while (j >=0 && s[i] !=s[j])
+        while (j >=0 && s[i] !=pat[j])
             j = b[j];
         i++;
         j++;
