@@ -59,39 +59,6 @@ using namespace std;
 #define                     she_taught_me_to_code cin.tie(0);cout.tie(0);ios_base::sync_with_stdio(false);cin.tie(NULL);    clock_t startTime=clock();
 #define time     cout<<(double(clock()-startTime )/(double)CLOCKS_PER_SEC)*1000<<" ms"<<endl;
 #define debug(k) cout<<"\t-> "<<#k<<" = "<<k<<endl;
-#define MAX_N 100010
-string s,pat;
-ll b[MAX_N], n, m;
-void kmpPreprocess()
-{
-    ll i = 0, j = -1; b[0] = -1;
-    while (i < m)
-    {
-        while (j >= 0 && pat[i] != pat[j])
-            j = b[j];
-        i++;
-        j++;
-        b[i] = j;
-    }
-}
-vi found;
-void kmpSearch()
-{
-    kmpPreprocess();
-    ll i = 0, j = 0;
-    while (i < n)
-    {
-        while (j >=0 && s[i] !=pat[j])
-            j = b[j];
-        i++;
-        j++;
-        if (j == m)
-        {
-            found.pb(i-j);
-            j = b[j];
-        }
-    }
-}
 int main()
 {
     she_taught_me_to_code
@@ -99,10 +66,43 @@ int main()
     // freopen("input.txt","r",stdin);
     // freopen("output.txt","w",stdout);
 
+    vi found;
+    string s,pat;
     cin>>s>>pat;
-    n=s.size();
-    m=pat.size();
-    kmpSearch();
-    output(found,found.size())<<endl;
+    ll l=pat.size(),j=0;
+    ll dp[l];
+    dp[0]=0;
+    for(ll i=1;i<l;i++)
+    {
+        while(j>0 && pat[j]!=pat[i])
+            j=dp[j-1];
+        if(pat[j]==pat[i])
+            j++;
+        dp[i]=j;
+    }
+    ll n=s.size();
+    ll i = 0;
+    j=0;
+    while (i<n)
+    {
+        if(pat[j]==s[i])
+        {
+            j++;
+            i++;
+        }
+        if (j==l)
+        {
+            found.pb(i-j);
+            j = dp[j-1];
+        }
+        else if (i<n && pat[j]!=s[i])
+        {
+            if (j!=0)
+                j=dp[j-1];
+            else
+                i=i+1;
+        }
+    }
+    output(found,found.size());
 
 }
