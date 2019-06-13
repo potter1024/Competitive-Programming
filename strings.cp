@@ -32,3 +32,9 @@ for (ll i = n-1; i > 0; i--)
     occ[dp[i-1]] += occ[i];
 for (ll i = 0; i <= n; i++)
     occ[i]++;
+
+// 4. Count the number of distinct substrings in a string
+
+ll sum=0;                             // sum will store the required value.   empty substring is not included
+for(ll i=1;i<=n;i++)
+    sum+=(i-dp[i-1]);
