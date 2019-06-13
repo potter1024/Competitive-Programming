@@ -1,5 +1,5 @@
-ll id[MAX]={};
-ll sz[MAX]={};
+ll id[N]={};
+ll sz[N]={};
 void initialise(ll n)
 {
     for(ll i=1;i<=n;i++)
