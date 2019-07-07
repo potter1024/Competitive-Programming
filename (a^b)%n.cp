@@ -1,14 +1,12 @@
-ll modulo(ll a, ll b, ll n)             //calculate (a^b)%n
+ll power(ll a,ll b)
 {
-    long long x=1, y=a;
-    while (b > 0)
-    {
-        if (b%2 == 1)
-        {
-            x = (x*y) % n;
-        }
-        y = (y*y) % n;
-        b /= 2;
-    }
-    return x % n;
+    if(b==0)
+        return 1;
+    ll x=power(a,b/2);
+    x*=x;
+    x%=M;
+    if(b%2)
+        x*=a;
+    x%=M;
+    return x;
 }
