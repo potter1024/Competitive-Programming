@@ -102,7 +102,7 @@ ll max(ll a,ll b)
 }
 vi visited(N,0),dis(N,0);
 vector<pair<ll,ll> > adj[N];        // value, node
-void dijkstra()
+void dijkstra()                     // time complexity is O( v+e*log(v) )
 {
     for(ll i=2;i<=N;i++)
         dis[i]=N;
