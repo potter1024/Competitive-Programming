@@ -103,7 +103,7 @@ ll max(ll a,ll b)
 ll n,m;
 vi visited(N,0),dis(N,0);
 vector<pair<ll,ll> > adj[N];        // value, node
-void ford()
+void ford()                         // runs in O(v*e)
 {
     for(ll i=2;i<=N;i++)
         dis[i]=N;
