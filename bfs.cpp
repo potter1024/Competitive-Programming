@@ -1,11 +1,11 @@
 queue<ll> q;
 q.push(1);
+visited[1]=1;                   // the vertex will be visited when it is pushed into the queue
 rank[1]=0;
 while(!q.empty())
 {
     ll x=q.front();
     q.pop();
-    visited[x]=1;
     for(ll i=0;i<adj[x].size();i++)
     {
         if(visited[adj[x][i]])
