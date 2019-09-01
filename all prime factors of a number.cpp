@@ -110,6 +110,8 @@ int main()
     ll arr[100005]={};
     for(ll i=2;i<=100000;i++)
     {
+        if(arr[i]==1)
+            continue;
         for(ll j=i+i;j<=100000;j+=i)
         {
             arr[j]=1;
