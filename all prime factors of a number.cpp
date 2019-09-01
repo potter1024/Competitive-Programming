@@ -107,20 +107,18 @@ int main()
     // freopen("input.txt","r",stdin);
     // freopen("input.txt","w",stdout);
 
-    ll arr[100005]={};
-    for(ll i=2;i<=100000;i++)
+    int a[100005]={};
+    vi v;
+    for(ll i=2;i*i<=100005;i++)
     {
-        if(arr[i]==1)
+        if(a[i]==1)
             continue;
-        for(ll j=i+i;j<=100000;j+=i)
-        {
-            arr[j]=1;
-        }
+        for(ll j=i*i;j<=100005;j+=i)
+        a[j]=1;
     }
-    vi prime;
-    for(ll i=2;i<=100000;i++)
-        if(!arr[i])
-            prime.pb(i);
+    for(ll i=2;i<100005;i++)
+        if(a[i]==0)
+            v.pb(i);
     ll n;
     cin>>n;
     vii fac;
