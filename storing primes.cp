@@ -1,7 +1,6 @@
-int a[100005];
+int a[100005]={};
 vi v;
-reset(a,0);
-for(ll i=2;i*i<=100005;i++)
+for(ll i=2;i*i<=100005;i++)                  // runs in O(n*log(log(n)))
 {
    if(a[i]==1)
       continue;
