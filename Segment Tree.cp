@@ -13,7 +13,7 @@ void build(ll node, ll start, ll end)          // initial call is build(1,0,n-1)
         tree[node] = tree[2*node] + tree[2*node+1];
     }
 }
-ll query(ll node, ll start, ll end, ll l, ll r)
+ll query(ll node, ll start, ll end, ll l, ll r)                     // [l,r] is the query
 {
     if(r < start || end < l)
     {
