@@ -100,22 +100,19 @@ ll max(ll a,ll b)
 {
     return a>b?a:b;
 }
-set<ll> not_vis,visiting,visited;
-vi adj[N];
+vi visiting(N,0),visited(N,0),adj[N];
 bool dfs(ll u)
 {
-    visiting.insert(u);
+    visiting[u]=1;
     for(ll i=0;i<adj[u].size();i++)
     {
-        if(visiting.find(adj[u][i])!=visiting.end())
-        {
+        if(visiting[adj[u][i]])                             // any vertex is found whose dfs is still in the process then there exists a cycle
             return 1;
-        }
-        if(visited.find(adj[u][i])==visited.end() && dfs(adj[u][i]))
+        if(!visited[adj[u][i]] && dfs(adj[u][i]))
             return 1;
     }
-    visiting.erase(u);
-    visited.insert(u);
+    visiting[u]=0;
+    visited[u]=1;
     return 0;
 }
 int32_t main()
@@ -136,7 +133,7 @@ int32_t main()
     bool cycle=0;
     for(ll i=1;i<=n;i++)
     {
-        if(visited.find(i)==visited.end())
+        if(!visited[i])
         {
             cycle |= dfs(i);
         }
