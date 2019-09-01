@@ -1,7 +1,7 @@
 vector<ll> v(N,0),tree(N,0);
 void build(ll node, ll start, ll end)          // initial call is build(1,0,n-1)
-{
-    if(start == end)
+{                                              // node is the index of that node in segment tree (starts with 1)
+    if(start == end)                           // start and end are are the range that this node in segment tree covers
     {
         tree[node] = v[start];
     }
