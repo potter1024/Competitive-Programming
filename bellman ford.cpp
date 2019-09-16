@@ -108,16 +108,9 @@ void ford()                         // runs in O(v*e)
     for(ll i=2;i<=N;i++)
         dis[i]=N;
     for(ll i=0;i<n-1;i++)
-    {
         for(ll j=1;j<=n;j++)
-        {
             for(ll k=0;k<adj[j].size();k++)
-            {
-                if(dis[j]+adj[j][k].ff<dis[adj[j][k].ss])
-                    dis[adj[j][k].ss]=dis[j]+adj[j][k].ff;
-            }
-        }
-    }
+                dis[adj[j][k].ss]=min(dis[j]+adj[j][k].ff,dis[adj[j][k].ss]);
 }
 int main()
 {
