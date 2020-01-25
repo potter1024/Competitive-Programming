@@ -1,0 +1,22 @@
+vector<ll> v(N,0);
+vector<vector<ll>> adj(N);
+pair<ll, ll> dfs(ll u, ll par, ll dist) {
+    v[u] = par;
+    pair<ll, ll> res = make_pair(dist, u);
+    for (auto to : adj[u]) {
+        if (to == par) continue;
+        res = max(res, dfs(to, u, dist + 1));
+    }
+    return res;
+}
+
+// call from int main()
+    pair<ll, ll> da = dfs(1,-1,0);
+    pair<ll, ll> db = dfs(da.ss,-1,0);
+    vector<ll> diam;
+    ll u = db.ss;
+    while (u != da.ss) {
+        diam.push_back(u);
+        u = v[u];
+    }
+    diam.push_back(da.ss);
