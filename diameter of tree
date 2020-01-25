@@ -1,22 +1,78 @@
-vector<ll> v(N,0);
-vector<vector<ll>> adj(N);
-pair<ll, ll> dfs(ll u, ll par, ll dist) {
-    v[u] = par;
-    pair<ll, ll> res = make_pair(dist, u);
-    for (auto to : adj[u]) {
-        if (to == par) continue;
-        res = max(res, dfs(to, u, dist + 1));
+ll n;
+    cin>>n;
+    for(ll i=0;i<n-1;i++)
+    {
+        ll a,b;
+        cin>>a>>b;
+        adj[a].pb(b);
+        adj[b].pb(a);
     }
-    return res;
-}
-
-// call from int main()
-    pair<ll, ll> da = dfs(1,-1,0);
-    pair<ll, ll> db = dfs(da.ss,-1,0);
+    queue<ll> q1;
+    q1.push(1);
+    vector<ll> dist(N,0),vis(N,0);
+    vis[1]=1;
+    ll end,ma=0;
+    while(!q1.empty())
+    {
+        ll x=q1.front();
+        q1.pop();
+        for(ll i=0;i<adj[x].size();i++)
+        {
+            if(!vis[adj[x][i]])
+            {
+                q1.push(adj[x][i]);
+                vis[adj[x][i]]=1;
+                dist[adj[x][i]]=dist[x]+1;
+                if(dist[adj[x][i]]>ma)
+                {
+                    ma=dist[adj[x][i]];
+                    end=adj[x][i];
+                }
+            }
+        }
+    }
+    for(ll i=1;i<=n;i++)
+    {
+        vis[i]=0;
+        dist[i]=0;
+    }
+    q1.push(end);
+    vis[end]=1;
+    ma=0;
+    while(!q1.empty())
+    {
+        ll x=q1.front();
+        q1.pop();
+        for(ll i=0;i<adj[x].size();i++)
+        {
+            if(!vis[adj[x][i]])
+            {
+                q1.push(adj[x][i]);
+                vis[adj[x][i]]=1;
+                dist[adj[x][i]]=dist[x]+1;
+                if(dist[adj[x][i]]>ma)
+                {
+                    ma=dist[adj[x][i]];
+                    end=adj[x][i];
+                }
+            }
+        }
+    }
     vector<ll> diam;
-    ll u = db.ss;
-    while (u != da.ss) {
-        diam.push_back(u);
-        u = v[u];
+    diam.pb(end);
+    ll u=end,d=dist[end];
+    while(d)
+    {
+        for(ll i=0;i<adj[u].size();i++)
+        {
+            if(dist[adj[u][i]]==d-1)
+            {
+                diam.pb(adj[u][i]);
+                d--;
+                u=adj[u][i];
+                break;
+            }
+        }
     }
-    diam.push_back(da.ss);
+    
+    // diam will store the path of diameter
