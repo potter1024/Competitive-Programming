@@ -113,9 +113,8 @@ void dijkstra()                     // time complexity is O( v+e*log(v) )
         pair<ll,ll> p=pq.top();
         ll x=p.ss;
         pq.pop();
-        if(visited[x])
+        if(p.ff>dis[x])
             continue;
-        visited[x]=1;
         for(ll i=0;i<adj[x].size();i++)
         {
             if(dis[adj[x][i].ss]>dis[x]+adj[x][i].ff)
