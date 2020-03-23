@@ -1,9 +1,8 @@
-struct TrieNode
-{
+struct TrieNode{
     map<char,TrieNode*> children;
     bool endofword;
-    TrieNode()
-    {
+    ll cnt=0;
+    TrieNode(){
         endofword=false;
     }
 };
@@ -21,6 +20,7 @@ void insert(string word)
             current->children[ch]=node;
         }
         current=node;
+        current->cnt++;
     }
     current->endofword=true;
 }
@@ -52,6 +52,22 @@ bool wordsearch(string word)
         return true;
     else
         return false;
+}
+void delet(TrieNode *node)          // delete the tree
+{
+    TrieNode *cur=node;
+    if(!cur)
+    {
+        return;
+    }
+    for(ll i = 0; i <= 25; i++)
+    {
+        if(cur -> children[(char)(i+'A')])
+        {
+            delet(cur -> children[(char)(i+'A')]);
+        }
+    }
+    delete(node);
 }
 void deletion(string word)
 {
