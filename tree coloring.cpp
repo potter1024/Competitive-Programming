@@ -175,7 +175,7 @@ void query_prepare(int n) {
 }
 
 void sum_tree_update(vector<int>& tree, int i, int l, int r, int j, int delta) {
-    tree[i] += delta;
+    tree[i] = delta;
     if (l < r) {
         int m = (l + r) >> 1;
         if (j <= m)
@@ -243,11 +243,10 @@ int main() {
             b--;
             int x=m[mp(a,b)];
             edge_used[x] = start;
-            sum_tree_update(tree1, 1, 0, (int)edges_list.size() - 1, first1[x],
-                            start ? 1 : -1);
-            sum_tree_update(tree2, 1, 0, (int)edges_list.size() - 1, first2[x],
-                            start ? 1 : -1);
-        } else {
+            sum_tree_update(tree1, 1, 0, (int)edges_list.size() - 1, first1[x],start);
+            sum_tree_update(tree2, 1, 0, (int)edges_list.size() - 1, first2[x],start);
+            }
+            else {
             cin>>a>>b;
             a--;
             b--;
@@ -259,12 +258,3 @@ int main() {
         }
     }
 }
-//int main(){
-//
-//    she_taught_me_to_code
-//
-//    // freopen("input.txt","r",stdin);
-//    // freopen("output.txt","w",stdout);
-//
-//
-//}
