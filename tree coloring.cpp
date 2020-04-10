@@ -232,29 +232,24 @@ int main() {
         int q;
         cin>>q;
         int a,b;
-        if (q==1) {
-            // request for painting edge x;
-            // if start = true, then the edge is painted, otherwise the painting
-            // is removed
-            int start;
-            cin>>start;
+        if (q==1){
+            int weight; // this weight will be set on the edge between a and b
+            cin>>weight;
             cin>>a>>b;
             a--;
             b--;
             int x=m[mp(a,b)];
-            edge_used[x] = start;
-            sum_tree_update(tree1, 1, 0, (int)edges_list.size() - 1, first1[x],start);
-            sum_tree_update(tree2, 1, 0, (int)edges_list.size() - 1, first2[x],start);
-            }
-            else {
-            cin>>a>>b;
+            edge_used[x] = weight;
+            sum_tree_update(tree1, 1, 0, (int)edges_list.size() - 1, first1[x],weight);
+            sum_tree_update(tree2, 1, 0, (int)edges_list.size() - 1, first2[x],weight);
+        }
+        else{
+            cin>>a>>b;  // this will give the sum of edges b/w a and b
             a--;
             b--;
-            // query the number of colored edges on the path between v1 and v2
             int l = lca(a, b);
             int result = query(l, a) + query(l, b);
             cout<<result<<endl;
-            // result - the answer to the request
         }
     }
 }
