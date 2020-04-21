@@ -108,7 +108,7 @@ int main()
     // freopen("input.txt","w",stdout);
 
     int a[100005]={};
-    vi v;
+    vi prime;
     for(ll i=2;i*i<=100005;i++)
     {
         if(a[i]==1)
