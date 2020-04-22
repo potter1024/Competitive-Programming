@@ -1,5 +1,5 @@
 vector<ll> v(N,0),tree(N,0);
-void build(ll node, ll left, ll right){         // initial call is build(1,0,n-1)
+void build(ll node, ll left, ll right){       
     if(left == right){
         tree[node] = v[start];
     }
