@@ -13,7 +13,7 @@ void dfs(ll u,ll p){
 }
 void push(ll node,ll left,ll right){
     if(left!=right){
-        lazy[node*2]^=1;
+        lazy[node*2]^=1;        // should be +=val for addition update
         lazy[node*2+1]^=1;
     }
     tree[node]=(right-left+1)-tree[node];
