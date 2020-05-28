@@ -10,10 +10,10 @@ void build(ll node, ll left, ll right){
     }
 }
 void update(ll node,ll left,ll right,ll l,ll r,ll add) {
-    if(r < left || right < l){
+    if(r < left || l>right){
         return;
     }
-    if(l <= left && r >= right){
+    if(left>=l && right<=r){
         tree[node]+=add;
     }
     else {
