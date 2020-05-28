@@ -26,10 +26,13 @@ ll query(ll node,ll left,ll right,ll l,ll r){
     if(l>r){
         return -inf;
     }
-    if(r < left || right < l){
+    push(node);
+    if(l>right || r<left){
+        return -inf;
+    }
+    if(left>=l && right<=r){
         return tree[node];
     }
-    push(node);
     ll mid=(left+right)/2;
     return max(query(node*2,left,mid,l,r),query(node*2+1,mid+1,right,l,r));
 }
