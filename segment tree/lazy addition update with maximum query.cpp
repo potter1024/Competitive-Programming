@@ -9,12 +9,12 @@ void update(ll node,ll left,ll right,ll l,ll r,ll add) {
     if(r < left || right < l){
         return;
     }
+    push(node);
     if(l <= left && r >= right){
         tree[node]+=add;
         lazy[node]+=add;
     }
     else {
-        push(node);
         ll mid = (left + right) / 2;
         update(2*node,left,mid,l,r,add);
         update(2*node+1,mid+1,right,l,r,add);
