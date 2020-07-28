@@ -1,3 +1,4 @@
 # Competitive-Programming
-Implementation of most used algorithms
+
+KEEP ADDING TO THIS LIST
 Implemented the most used data structures and alagorithms in C++.
