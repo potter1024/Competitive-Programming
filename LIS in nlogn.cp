@@ -127,7 +127,7 @@ int main()
     vector<int> d(n+1,N);
     for (int i = 0; i < n; i++)
     {
-        *upper_bound(d.begin(), d.end(), a[i]) = a[i];
+        *upper_bound(d.begin(), d.end(), a[i]) = a[i];  // *upper_bound(d.begin(), d.end(), a[i]) = a[i]+1; for strictly increasing
     }
     for (int i = 0; i <= n; i++)
     {
