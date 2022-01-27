@@ -6,6 +6,7 @@ ll dp[n];                               // dp[i] will store the longest prefix w
 dp[0]=0;
 for(ll i=1;i<n;i++)
 {
+    int j=dp[i-1];
     while(j>0 && s[j]!=s[i])
         j=dp[j-1];
     if(s[j]==s[i])
